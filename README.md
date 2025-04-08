@@ -613,4 +613,103 @@ Security
              }
          }
 
+#Database
+private void btnRecord_Click(object sender, EventArgs e)
+{
+    string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\USERS\\M2303678\\ONEDRIVE - MIDDLESBROUGH COLLEGE\\C++\\SQL IN C#\\MY DB.MDF";
+    SqlConnection sqlConnection = new SqlConnection(connectionString);
+
+
+
+    //Use stored procedure
+
+    SqlCommand command = new SqlCommand("CreateNewPersonRecord", sqlConnection);
+    command.CommandType = CommandType.StoredProcedure;
+
+    //Input name and age from form
+    string name = txtName.Text;
+    int age = int.Parse(txtAge.Text);
+
+    //Call stored procedure passing name and age as parameters
+
+    command.Parameters.AddWithValue("@Name", name);
+    command.Parameters.AddWithValue("@Age", age);
+
+    //Open connection to database, execute stored procedure and close the connection
+
+    sqlConnection.Open();
+    command.ExecuteNonQuery();
+    sqlConnection.Close();
+}
+
+private void btnUpdate_Click(object sender, EventArgs e)
+{
+    string connectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = C:\\USERS\\M2303678\\ONEDRIVE - MIDDLESBROUGH COLLEGE\\C++\\SQL IN C#\\MY DB.MDF; Integrated Security = True; Connect Timeout = 30";
+
+    SqlConnection sqlConnection = new SqlConnection(connectionString);
+
+   //USE STORED PROCEDURE
+
+    SqlCommand command = new SqlCommand("UpdatePerson", sqlConnection);
+
+    command.CommandType = CommandType.StoredProcedure;
+    string name = txtName.Text;
+    int age = int.Parse(txtAge.Text);
+    int Stdid = int.Parse(txtID.Text);
+    command.Parameters.AddWithValue("@StdId", Stdid);
+    command.Parameters.AddWithValue("@Name", name);
+    command.Parameters.AddWithValue("@Age", age);
+    sqlConnection.Open();
+    command.ExecuteNonQuery();
+
+    sqlConnection.Close();
+    
+}
+
+private void btnRead_Click(object sender, EventArgs e)
+{
+    //Read a person record
+
+
+    string connectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = C:\\USERS\\M2303678\\ONEDRIVE - MIDDLESBROUGH COLLEGE\\C++\\SQL IN C#\\MY DB.MDF; Integrated Security = True; Connect Timeout = 30";
+
+
+    SqlConnection sqlConnection = new SqlConnection(connectionString);
+
+
+    SqlCommand cmd = new SqlCommand("GetPersonDetails", sqlConnection);
+
+    cmd.CommandType = CommandType.StoredProcedure;
+
+    SqlDataAdapter sd = new SqlDataAdapter(cmd);
+
+    DataTable dt = new DataTable();
+
+
+    sqlConnection.Open();
+
+    sd.Fill(dt);
+
+    sqlConnection.Close();
+
+
+    //Read rows of database and extract fields
+
+
+    foreach (DataRow dr in dt.Rows)
+
+    {
+
+        int personId = (int)(dr["Id"]);
+
+        string personName = (string)(dr["Name"]);
+
+        // int personAge = (int)(dr["Age"]);
+
+        int pAge = (int)(dr["Ages"]);
+
+
+        txtdata.AppendText(personName + "\t"  + pAge + Environment.NewLine);
+
+
   
