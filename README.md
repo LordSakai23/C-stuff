@@ -534,3 +534,83 @@ Hierarchy diagram
 Proposal
 Justification
 Security
+
+##Encryption
+ public partial class Form1 : Form
+ {
+
+     private byte[] aesKey = Encoding.UTF8.GetBytes("1234567890123456"); // 16-byte key
+     private byte[] aesIV = Encoding.UTF8.GetBytes("1234567890123456"); // 16-byte IV
+     public Form1()
+     {
+         InitializeComponent();
+     }
+
+     private void btnEncrypt_Click(object sender, EventArgs e)
+     {
+         string inputText = txtInput.Text;
+
+         // Perform AES Encryption
+         string encryptedText = EncryptWithAES(inputText, aesKey, aesIV);
+
+         // Display encrypted text
+         txtEncrypted.Text = encryptedText;
+     }
+
+     private void btnDecrypt_Click(object sender, EventArgs e)
+     {
+         string encryptedText = txtEncrypted.Text;
+
+         // Perform AES Decryption
+         string decryptedText = DecryptWithAES(encryptedText, aesKey, aesIV);
+
+         // Display decrypted text
+         txtDecrypted.Text = decryptedText;
+     }
+
+     private string EncryptWithAES(string plainText, byte[] key, byte[] iv)
+     {
+         using (Aes aes = Aes.Create())
+         {
+             aes.Key = key;
+             aes.IV = iv;
+
+             ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
+
+             using (var ms = new System.IO.MemoryStream())
+             {
+                 using (var cryptoStream = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+                 {
+                     using (var writer = new System.IO.StreamWriter(cryptoStream))
+                     {
+                         writer.Write(plainText);
+                     }
+                 }
+
+                 return Convert.ToBase64String(ms.ToArray());
+             }
+         }
+     }
+
+     private string DecryptWithAES(string cipherText, byte[] key, byte[] iv)
+     {
+         using (Aes aes = Aes.Create())
+         {
+             aes.Key = key;
+             aes.IV = iv;
+
+             ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+
+             using (var ms = new System.IO.MemoryStream(Convert.FromBase64String(cipherText)))
+             {
+                 using (var cryptoStream = new CryptoStream(ms, decryptor, CryptoStreamMode.Read))
+                 {
+                     using (var reader = new System.IO.StreamReader(cryptoStream))
+                     {
+                         return reader.ReadToEnd();
+                     }
+                 }
+             }
+         }
+
+  
