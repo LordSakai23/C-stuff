@@ -139,7 +139,7 @@ o	A table to link to external sites if necessary.
 • For collectiing data you can use a table of [Name, type of audience, problem encountered, solution  
 • You could have a rating of what they rate each section and like a google play store type format  
 •	At the end of every individual feedback evaluate it and make sure you understand what they meant    
-•	Technical users
+Technical users
 1.	Friends 
 2.	Co-workers at work experience 
 3.	Tutors from college
