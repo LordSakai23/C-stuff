@@ -139,7 +139,59 @@ o	A table to link to external sites if necessary.
 • For collectiing data you can use a table of [Name, type of audience, problem encountered, solution  
 • You could have a rating of what they rate each section and like a google play store type format  
 •	At the end of every individual feedback evaluate it and make sure you understand what they meant    
-•	Have a list of things you need to improve due to the feedback that you received.  
+•	Technical users
+1.	Friends 
+2.	Co-workers at work experience 
+3.	Tutors from college
+Non-Technical users
+1. Friends
+2. Family
+3. Colleagues at work 
+Feedback gathering methods;
+1.	Focus group: using a focus group to gather feedback would be very exceptional because it would no only help me find of what aspects of the code would need a lot of improvement but gives me the opportunity to talk about the changes and aspects that need to happen in the code.
+2.	Surveys: this method of collecting feedback is relatively fast and very effective when trying to measure/evaluate KPI’s in the system
+Expected feedback:
+1.	Negative feedback regarding the code 
+2.	Positive feedback regarding the interface 
+
+
+FOCUS GROUP 
+Functional
+The functional focus group I intend on using to analyse and get opinions/feedback on the application will consist of individuals that have experience with C# and SQL and have also worked on projects such as this. The functional focus group will focus on the code of the application for example, we would try to solve the database issue to find out if it was a system failure of the fault is the existing code.
+Nonfunctional
+The nonfunctional focus group is would just be made of random people see as we would discuss on the aspects that the user would be able see and have access to (User interface). During this focus group we will discuss the strengths and weaknesses of the UI.
+QUESTIONS
+Functional
+1.	Is the code well commented?
+2.	Are the variable names I used appropriate and I not any recommendations for an appropriate way to name variables?
+3.	What is an appropriate way to link the code to the database?
+4.	Are the calculations for the calculate carbon footprint?
+Non-functional
+1.	Is the colour scheme I used appropriate? 
+2.	Does the user interface look easily to use?
+3.	Is it easy to navigate through the different areas of the application?
+4.	Does the application look complex? 
+
+SURVEY QUESTIONS
+Functional
+1.	Do you think this application would have worked better with classes?
+2.	How would you rate the tidiness of the code? 
+3.	Do you think that the code was commented? 
+4.	On a scale of 1 to 10 how would you rate your understanding of the application just by looking at the code?
+5.	Have you worked on a project that is like this application? 
+6.	If so then doo you have any recommended features for the game 
+Non- functional 
+1.	Does the green colour screen give you that energy savings feeling?
+2.	What would you rate the user interface between 1 and 10?
+3.	How often do you check your carbon footprint?
+4.	Have you tried to use green energy? 
+5.	Is it easy to access the different areas of the application?
+6.	Do you find the carbon footprint calculator easy to understand and use? 
+7.	Are there fields in the carbon footprint calculator easy to understand?
+8.	Does the application seem complex?
+
+Feedback Analysis
+
 ### Guidance  
 • The materials should allow for the gathering of high quality feedback for different aspect of the developed prototype  
 • The use of the tools has resulted in feedback that consistently provides the opportunity for evidence- informed further iteration  
